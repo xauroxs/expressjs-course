@@ -1,9 +1,28 @@
 const express = require("express");
-
 const path = require("path");
+const cors = require("cors");
+
+const { logger } = require("./middleware/logEvents");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// applying custom middleware - logger
+app.use(logger);
+
+// Cross Origin Resource Sharing
+const whitelist = ["https://www.google.com"];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Denied by CORS"));
+    }
+  },
+};
+app.use(cors(corsOptions));
 
 // applying middleware
 app.use(express.urlencoded({ extended: false }));
@@ -59,8 +78,19 @@ const three = (req, res) => {
 app.get("/chain(.html)?", [one, two, three]);
 
 // every route that is not supported
-app.get("/*", (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+app.all("*", (req, res) => {
+  res.status(404);
+
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__dirname, "views", "404.html"));
+  } else if (req.accepts("json")) {
+    res.json({ error: "404 Not Found" });
+  } else {
+    res.type("txt").send("404 Not Found");
+  }
 });
+
+// write all errors to errLog file
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Express app is running on port ${port}`));

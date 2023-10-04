@@ -1,0 +1,8 @@
+04.10.2023 21:53:20 14e12624-0113-403c-b536-9742a9eefdc7 GET  undefined  /
+04.10.2023 21:53:20 6c5757b3-ed80-45e4-8638-9d2f4d453283 GET  undefined  /css/style.css
+04.10.2023 21:54:44 704fc1da-0084-4f45-a330-ee39d4af7d04 OPTIONS  https://www.google.com  /
+04.10.2023 21:54:44 0d884701-1b33-4727-b272-664fd47397d5 GET  https://www.google.com  /
+04.10.2023 21:58:00 fa576676-1636-403d-b71e-cd25f73bb52f GET  undefined  /
+04.10.2023 21:59:41 23cc719f-1d4f-4f5c-bf22-0c675e2b52bb GET  undefined  /
+04.10.2023 22:02:10 62c3393b-0029-40b5-be75-abc214016b4c GET  undefined  /django
+04.10.2023 22:02:10 fbb77109-982a-4379-a04b-442a74c90125 GET  undefined  /css/style.css

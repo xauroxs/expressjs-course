@@ -1,0 +1,1 @@
+04.10.2023 21:59:41 7f98274f-bd63-4f22-bad3-803712466ff7 Error: Denied by CORS
