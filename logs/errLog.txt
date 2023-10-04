@@ -1,1 +1,3 @@
 04.10.2023 21:59:41 7f98274f-bd63-4f22-bad3-803712466ff7 Error: Denied by CORS
+04.10.2023 23:16:32 0bc94d26-700c-4b5a-8fdc-f66281eeb6b5 Error: ENOENT: no such file or directory, stat '/home/x/xauroxs/github/expressjs-course/routes/views/index.html'
+04.10.2023 23:17:59 78e8dce1-d511-49e6-a330-44d973a7562b Error: ENOENT: no such file or directory, stat '/home/x/xauroxs/github/expressjs-course/routes/views/new-page.html'
