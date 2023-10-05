@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 
+const corsOptions = require("./config/cors-options");
+
 const rootRouter = require("./routes/root");
 const subdirRouter = require("./routes/subdir");
 
@@ -15,16 +17,6 @@ const port = process.env.PORT || 3000;
 app.use(logger);
 
 // Cross Origin Resource Sharing
-const whitelist = ["https://www.google.com"];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Denied by CORS"));
-    }
-  },
-};
 app.use(cors(corsOptions));
 
 // applying middleware
