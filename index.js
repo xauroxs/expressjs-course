@@ -5,7 +5,6 @@ const cors = require("cors");
 const corsOptions = require("./config/cors-options");
 
 const rootRouter = require("./routes/root");
-const subdirRouter = require("./routes/subdir");
 
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
@@ -24,11 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
-app.use("/subdir", express.static(path.join(__dirname, "public")));
 
 // express router
 app.use("/", rootRouter);
-app.use("/subdir", subdirRouter);
 
 // every route that is not supported
 app.all("*", (req, res) => {
